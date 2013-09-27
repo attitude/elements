@@ -1,0 +1,8 @@
+{
+    "name": "attitude/Elements",
+    "autoload": {
+        "psr-0": {
+            "Elements": ""
+        }
+    }
+}

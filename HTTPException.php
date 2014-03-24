@@ -83,7 +83,7 @@ class HTTPException extends Exception
     /**
      * Sets header according to provided status number
      *
-     * @param int $status Valid HTTP status code
+     * @param  int $status Valid HTTP status code
      * @return mixed           String response or false
      *
      */
@@ -126,5 +126,31 @@ class HTTPException extends Exception
         }
 
         return self::$statuses[$code];
+    }
+
+    /**
+     * Returns boolean success status
+     *
+     * @param  void
+     * @return boolean
+     *
+     */
+    public function isSuccess()
+    {
+        $code = $this->getCode();
+
+        return $code >= 200 && $code < 300;
+    }
+
+    /**
+     * Returns boolean error status
+     *
+     * @param  void
+     * @return boolean
+     *
+     */
+    public function isError()
+    {
+        return ! $this->isTrue();
     }
 }

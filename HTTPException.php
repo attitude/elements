@@ -84,7 +84,7 @@ class HTTPException extends Exception
      * Sets header according to provided status number
      *
      * @param int $status Valid HTTP status code
-     * @returns mixed           String response or false
+     * @return mixed           String response or false
      *
      */
     public function header($header=null)
@@ -112,7 +112,7 @@ class HTTPException extends Exception
      * Returns HTTP Status based on code number
      *
      * @param   string|int  $code
-     * @returns string
+     * @return  string
      *
      */
     public static function getStatus($code)

@@ -151,6 +151,6 @@ class HTTPException extends Exception
      */
     public function isError()
     {
-        return ! $this->isTrue();
+        return ! $this->isSuccess();
     }
 }

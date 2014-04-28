@@ -90,23 +90,6 @@ class DependencyContainer
             return self::$dependencies[$key];
         }
 
-//         var_dump($key, self::$dependencies[$key]);
-//         echo '<br />';
-
-        // Auto-class by $key or NULL
-        if (is_string(self::$dependencies[$key]) || self::$dependencies[$key]===null) {
-            $dependency = self::$dependencies[$key]===null ? $key : self::$dependencies[$key];
-
-            if (class_exists($dependency)) {
-                if (method_exists($dependency, 'instance')) {
-                    return $dependency::instance();
-                }
-
-                return new $dependency;
-            }
-        }
-
         return self::$dependencies[$key];
     }
 }
-

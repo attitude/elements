@@ -77,14 +77,17 @@ class HTTPException extends Exception
             }
         }
 
-        return parent::__construct($message, $code, $previous);
+        parent::__construct($message, $code, $previous);
+
+        // Shoul be chainable, but is not :(
+        return $this;
     }
 
     /**
      * Sets header according to provided status number
      *
-     * @param  int $status Valid HTTP status code
-     * @return mixed           String response or false
+     * @param  int   $status Valid HTTP status code
+     * @return mixed         String response or false
      *
      */
     public function header($header=null)
@@ -94,7 +97,7 @@ class HTTPException extends Exception
                 $this->headers[] = $header;
             }
 
-            return;
+            return $this;
         }
 
         if (!headers_sent()) {
